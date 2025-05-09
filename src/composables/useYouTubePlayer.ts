@@ -6,7 +6,6 @@ interface WindowWithYouTubeAPI extends Window {
   onYouTubeIframeAPIReady?: () => void
 }
 
-// --- Module-level state for global API management ---
 let isApiScriptInjectedGlobal = false
 let isApiReadyGlobal = false
 const apiReadyCallbacksGlobal: Array<() => void> = []
@@ -52,7 +51,6 @@ if (typeof window !== 'undefined') {
     }
   }
 }
-// --- End of Module-level state ---
 
 export interface UseYouTubePlayerOptions {
   playerId: string

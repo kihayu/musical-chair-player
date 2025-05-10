@@ -33,8 +33,8 @@
 </template>
 
 <script setup lang="ts">
-import SongInput from './components/SongInput.vue'
-import VideoPlayer from './components/VideoPlayer.vue'
+import SongInput from '@/components/SongInput.vue'
+import VideoPlayer from '@/components/VideoPlayer.vue'
 import { ref, onMounted, onUnmounted, computed } from 'vue'
 
 const playlist = ref<Array<string>>([])

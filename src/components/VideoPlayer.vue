@@ -17,7 +17,7 @@
 
 <script setup lang="ts">
 import { watch, ref } from 'vue'
-import { useYouTubePlayer, type UseYouTubePlayerOptions } from '@/composables/useYouTubePlayer' // Adjust path if necessary
+import { useYouTubePlayer, type UseYouTubePlayerOptions } from '@/composables/useYouTubePlayer'
 
 interface VideoPlayerProps {
   videoUrl: string

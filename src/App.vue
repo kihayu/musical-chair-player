@@ -43,7 +43,6 @@ const playerWidth = ref(0)
 const playerHeight = ref(0)
 
 const maxWidth = 1280
-let maxHeight = Math.floor((maxWidth * 9) / 16)
 
 const currentVideoUrl = computed(() => playlist.value[currentMusicIndex.value])
 const videoPlayerAutoplay = ref(false)
@@ -62,14 +61,19 @@ const onListItemClick = (index: number) => {
 }
 
 const onResize = () => {
-  playerWidth.value = window.innerWidth > maxWidth ? maxWidth : window.innerWidth - 32 * 2
-  maxHeight = Math.floor((playerWidth.value * 9) / 16)
-  playerHeight.value = window.innerHeight > maxHeight ? maxHeight : window.innerHeight
+  const availableWidth = window.innerWidth - 64
+  playerWidth.value = Math.min(maxWidth, availableWidth)
+
+  const aspectRatioMaxHeight = Math.floor((playerWidth.value * 9) / 16)
+  playerHeight.value = Math.min(aspectRatioMaxHeight, window.innerHeight)
 }
 
 onMounted(() => {
-  playerWidth.value = window.innerWidth > maxWidth ? maxWidth : window.innerWidth
-  playerHeight.value = window.innerHeight > maxHeight ? maxHeight : window.innerHeight
+  const initialAvailableWidth = window.innerWidth - 64
+  playerWidth.value = Math.min(maxWidth, initialAvailableWidth)
+
+  const initialAspectRatioMaxHeight = Math.floor((playerWidth.value * 9) / 16)
+  playerHeight.value = Math.min(initialAspectRatioMaxHeight, window.innerHeight)
 
   window.addEventListener('resize', onResize)
 })

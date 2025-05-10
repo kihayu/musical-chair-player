@@ -63,17 +63,8 @@ export interface UseYouTubePlayerOptions {
   onVideoPaused?: () => void
 }
 
-export function useYouTubePlayer(options: UseYouTubePlayerOptions) {
-  const {
-    playerId,
-    videoUrl,
-    autoplay,
-    width = '640',
-    height = '360',
-    onVideoEnded,
-    onVideoStarted,
-    onVideoPaused,
-  } = options
+export const useYouTubePlayer = (options: UseYouTubePlayerOptions) => {
+  const { videoUrl } = options
 
   const playerInstance = ref<YT.Player | null>(null)
   const isApiReadyInstance = ref(false)

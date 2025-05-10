@@ -42,7 +42,7 @@ const currentMusicIndex = ref(0)
 const playerWidth = ref(0)
 const playerHeight = ref(0)
 
-const maxWidth = window.innerWidth - 32 * 2
+const maxWidth = 1280
 let maxHeight = Math.floor((maxWidth * 9) / 16)
 
 const currentVideoUrl = computed(() => playlist.value[currentMusicIndex.value])

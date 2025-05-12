@@ -1,4 +1,3 @@
-/// <reference types="youtube" />
 import { ref, onMounted, onUnmounted, watch, nextTick, type Ref } from 'vue'
 
 interface WindowWithYouTubeAPI extends Window {
